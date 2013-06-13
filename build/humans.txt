@@ -1,0 +1,14 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Stefanie Hatcher -- Developer -- @stefhatcher
+
+# THANKS
+
+    http://screensiz.es/ for gathering info
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3, Javascript

@@ -1,0 +1,218 @@
+# order by increasing device_width, then increasing device_height.
+# order devices per shared dimensions alphabetically
+
+-
+  device_width: 266
+  device_height: 533
+  res_width: 400
+  res_height: 800
+  dprs: "1.5"
+  contains_os: "android"
+  devices:
+    -
+      name: HTC Evo
+      os: Android
+      dpr: "1.5"
+
+-
+  device_width: 320
+  device_height: 480
+  res_width: 640
+  res_height: 960
+  dprs: "1,2"
+  contains_os: "ios"
+  devices:
+    -
+      name: iPhone 3GS
+      os: iOS
+      dpr: "1"
+    -
+      name: iPhone 4
+      os: iOS
+      dpr: "2"
+    -
+      name: iPhone 4S
+      os: iOS
+      dpr: "2"
+
+-
+  device_width: 320
+  device_height: 533
+  res_width: 480
+  res_height: 800
+  dprs: "1.5"
+  contains_os: "android,windows"
+  devices:
+    -
+      name: Galaxy S Plus
+      os: Android
+      dpr: "1.5"
+    -
+      name: Galaxy SII
+      os: Android
+      dpr: "1.5"
+    -
+      name: HTC Desire
+      os: Android
+      dpr: "1.5"
+    -
+      name: HTC Desire HD
+      os: Android
+      dpr: "1.5"
+    -
+      name: Nokia Lumia 710
+      os: Windows
+      dpr: "1.5"
+    -
+      name: Nokia Lumia 800
+      os: Windows
+      dpr: "1.5"
+    -
+      name: Nokia Lumia 900
+      os: Windows
+      dpr: "1.5"
+    -
+      name: Samsung Nexus S
+      os: Android
+      dpr: "1.5"
+
+-
+  device_width: 320
+  device_height: 568
+  res_width: 640
+  res_height: 1136
+  dprs: "2"
+  contains_os: "ios"
+  devices:
+    -
+      name: iPhone 5
+      os: iOS
+      dpr: "2"
+
+-
+  device_width: 320
+  device_height: 569
+  res_width: 480
+  res_height: 854
+  dprs: "1.5"
+  contains_os: "android"
+  devices:
+    -
+      name: Droid
+      os: Android
+      dpr: "1.5"
+
+-
+  device_width: 360
+  device_height: 640
+  res_width: 540
+  res_height: 960
+  dprs: "1.5"
+  contains_os: "android"
+  devices:
+    -
+      name: Droid 3
+      os: Android
+      dpr: "1.5"
+    -
+      name: Droid 4
+      os: Android
+      dpr: "1.5"
+    -
+      name: Droid Razr
+      os: Android
+      dpr: "1.5"
+    -
+      name: Droid Razr Maxx
+      os: Android
+      dpr: "1.5"
+
+-
+  device_width: 360
+  device_height: 640
+  res_width: 720
+  res_height: 1280
+  dprs: "2"
+  contains_os: "android"
+  devices:
+    -
+      name: Galaxy Nexus
+      os: Android
+      dpr: "2"
+    -
+      name: Galaxy Note II
+      os: Android
+      dpr: "2"
+    -
+      name: Galaxy SIII
+      os: Android
+      dpr: "2"
+
+-
+  device_width: 360
+  device_height: 640
+  res_width: 1080
+  res_height: 1920
+  dprs: "3"
+  contains_os: "android"
+  devices:
+    -
+      name: Galaxy SIV
+      os: Android
+      dpr: "3"
+    -
+      name: HTC One
+      os: Android
+      dpr: "3"
+
+-
+  device_width: 382
+  device_height: 640
+  res_width: 768
+  res_height: 1280
+  dprs: "2"
+  contains_os: "android,blackberry,windows"
+  devices:
+    -
+      name: BlackBerry Z10
+      os: BlackBerry
+      dpr: "2"
+    -
+      name: Google Nexus 4 (LG)
+      os: Android
+      dpr: "2"
+    -
+      name: Nokia Lumia 920
+      os: Windows
+      dpr: "2"
+
+-
+  device_width: 400
+  device_height: 640
+  res_width: 800
+  res_height: 1280
+  dprs: "2"
+  contains_os: "android"
+  devices:
+    -
+      name: Galaxy Note
+      os: Android
+      dpr: "2"
+
+-
+  device_width: 480
+  device_height: 800
+  res_width: 480
+  res_height: 800
+  dprs: "1"
+  contains_os: "android"
+  devices:
+    -
+      name: Galaxy S
+      os: Android
+      dpr: "1"
+
+
+
+
+

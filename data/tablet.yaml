@@ -1,0 +1,175 @@
+# order by increasing device_width, then increasing device_height.
+# order devices per shared dimensions alphabetically
+
+-
+  device_width: 533
+  device_height: 853
+  dprs: "1.5"
+  contains_os: "android"
+  devices:
+    -
+      name: 'Amazon Kindle Fire HD 7"'
+      os: Android
+      dpr: "1.5"
+    -
+      name: Motorola Xoom
+      os: Android
+      dpr: "1.5"
+    -
+      name: Samsung Galaxy Tab 10.1
+      os: Android
+      dpr: "1.5"
+    -
+      name: Toshiba AT100
+      os: Android
+      dpr: "1.5"
+
+
+-
+  device_width: 600
+  device_height: 800
+  dprs: "1"
+  contains_os: "android"
+  devices:
+    -
+      name: Nook Tablet
+      os: Android
+      dpr: "1"
+
+
+-
+  device_width: 600
+  device_height: 1024
+  dprs: "1"
+  contains_os: "android,blackberry"
+  devices:
+    -
+      name: Amazon Kindle Fire 1st Gen
+      os: Android
+      dpr: "1"
+    -
+      name: Ainol Novo 7 Crystal
+      os: Android
+      dpr: "1"
+    -
+      name: BlackBerry PlayBook
+      os: BlackBerry
+      dpr: "1"
+    -
+      name: Samsung Galaxy Tab
+      os: Android
+      dpr: "1"
+    -
+      name: Samsung Galaxy Tab 2
+      os: Android
+      dpr: "1"
+
+
+-
+  device_width: 601
+  device_height: 962
+  dprs: "1.33"
+  contains_os: "android"
+  devices:
+    -
+      name: Google Nexus 7 by Asus
+      os: Android
+      dpr: "1.33"
+
+
+-
+  device_width: 720
+  device_height: 1280
+  dprs: "1.5"
+  contains_os: "windows"
+  devices:
+    -
+      name: Microsoft Surface Pro
+      os: Windows
+      dpr: "1.5"
+
+
+-
+  device_width: 720
+  device_height: 1366
+  dprs: "1"
+  contains_os: "windows"
+  devices:
+    -
+      name: Microsoft Surface
+      os: Windows
+      dpr: "1"
+
+
+-
+  device_width: 768
+  device_height: 1024
+  dprs: "1,2"
+  contains_os: "android,ios"
+  devices:
+    -
+      name: Ainol Novo 9 Spark
+      os: Android
+      dpr: "2"
+    -
+      name: "Apple iPad 1 &amp; 2"
+      os: iOS
+      dpr: "1"
+    -
+      name: "Apple IPad 3 &amp; 4"
+      os: iOS
+      dpr: "2"
+    -
+      name: Apple iPad Mini
+      os: iOS
+      dpr: "1"
+
+
+-
+  device_width: 768
+  device_height: 1280
+  dprs: "1"
+  contains_os: "android"
+  devices:
+    -
+      name: Acer Picasso
+      os: Android
+      dpr: "1"
+
+
+-
+  device_width: 800
+  device_height: 1280
+  dprs: "1,1.5"
+  contains_os: "android"
+  devices:
+    -
+      name: 'Amazon Kindle Fire HD 8.9"'
+      os: Android
+      dpr: "1.5"
+    -
+      name: Asus Transformer
+      os: Android
+      dpr: "1.5"
+    -
+      name: Galaxy Note 10.1
+      os: Android
+      dpr: "1"
+    -
+      name: Samsung Galaxy Tab 2 10.1
+      os: Android
+      dpr: "1"
+-
+  device_width: 800
+  device_height: 1280
+  dprs: "2"
+  contains_os: "android"
+  devices:
+    -
+      name: Ainol Novo 10 Hero
+      os: Android
+      dpr: "1"
+    -
+      name: Google Nexus 10 by Samsung
+      os: Android
+      dpr: "2"

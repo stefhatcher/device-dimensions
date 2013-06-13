@@ -1,0 +1,62 @@
+/
+  _____/\\\\\\\\\\\_______/\\\\\\\\\\\____/\\\________/\\\_
+  ___/\\\/////////\\\___/\\\/////////\\\_\/\\\_______\/\\\_
+  __\//\\\______\///___\//\\\______\///__\/\\\_______\/\\\_
+  ___\////\\\___________\////\\\_________\/\\\\\\\\\\\\\\\_
+  ______\////\\\___________\////\\\______\/\\\/////////\\\_
+  _________\////\\\___________\////\\\___\/\\\_______\/\\\_
+  __/\\\______\//\\\___/\\\______\//\\\__\/\\\_______\/\\\_
+  _\///\\\\\\\\\\\/___\///\\\\\\\\\\\/___\/\\\_______\/\\\_
+  ___\///////////_______\///////////_____\///________\///__
+  __/\\\\\\\\\\\\_____/\\\\\\\\\\\\\\\__/\\\________/\\\___
+  _\/\\\////////\\\__\/\\\///////////__\/\\\_______\/\\\___
+  _\/\\\______\//\\\_\/\\\_____________\//\\\______/\\\____
+  _\/\\\_______\/\\\_\/\\\\\\\\\\\______\//\\\____/\\\_____
+  _\/\\\_______\/\\\_\/\\\///////________\//\\\__/\\\______
+  _\/\\\_______\/\\\_\/\\\________________\//\\\/\\\_______
+  _\/\\\_______/\\\__\/\\\_________________\//\\\\\________
+  _\/\\\\\\\\\\\\/___\/\\\\\\\\\\\\\\\______\//\\\_________
+  _\////////////_____\///////////////________\///__________
+  stefanie hatcher. portland, oregon.
+!!!
+%head
+  %meta{:charset => "utf-8" }
+  %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible" }
+  %title= data.page.title
+  %meta{:name => "description", :content => data.page.description }
+  %meta{:content => "#{data.page.title}", :property => "og:title"}/
+  %meta{:content => "http://stefhatcher.com/images/stefaniewithaf.png", :property => "og:image"}/
+  %meta{:content => "#{data.page.description}", :property => "og:description"}/
+  %meta{:name => "viewport", :content => data.page.viewport || "width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" }
+  %link{:href => "s.ico", :rel => "shortcut icon" }
+  %link{:href => "http://fonts.googleapis.com/css?family=Raleway:400,300", :rel => "stylesheet", :type => "text/css" }
+  = stylesheet_link_tag 'normalize', 'main'
+  = javascript_include_tag "vendor/modernizr-2.6.1.min.js"
+  %body
+    #wrapper
+      #mobile-message
+        .content
+          %p It's *super* recommended to visit this on a desktop.
+      #header
+        .content
+          %h1
+            = data.page.page_title
+            %span.author by stefanie hatcher
+      #main
+        = yield
+    #footer
+      .content
+        = yield_content :footer
+
+    %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"}
+
+    :javascript
+      window.jQuery || document.write('<script src="js/vendor/jquery-1.8.0.min.js"><\/script>')
+
+    = javascript_include_tag 'main'
+
+    :javascript
+      var _gaq=[['_setAccount','UA-20906195-1'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));

@@ -1,0 +1,220 @@
+---
+title: "Mobile + Tablet Device Dimensions"
+description: Blast resolution! Fluff design and development less by considering device dimensions, not resolution! What? Here's a handy demonstration of common hot-stuff-dimensions found on mobile and tablet devices.
+viewport: width=1280
+page_title: Mobile + Tablet Device Dimensions
+---
+
+.content.filters
+  .mobile-types.filter-group
+    #mobile.filter.mobile-type.active Mobile
+    #tablet.filter.mobile-type Tablet
+
+  .os-types.filter-group
+    #os-ios.filter.os-type iOS
+    #os-android.filter.os-type Android
+    #os-windows.filter.os-type Windows
+    #os-blackberry.filter.os-type Blackberry
+
+  .dprs.filter-group
+    .label Device Pixel Ratio:
+    #dpr-1.filter.dpr 1.0
+    #dpr-1--5.filter.dpr 1.5
+    #dpr-2.filter.dpr 2.0
+    #dpr-3.filter.dpr 3.0
+
+  .views.filter-group
+    #stacked-view.filter.view.active Stacked
+    #grid-view.filter.view Grid
+
+.content.layers.mobiles
+  .no-results
+    .message
+      %p
+        No results
+        %span :(
+      %p Try different filter combinations.
+
+  - total_mobile = 0
+
+  - ios_mobile = 0
+  - android_mobile = 0
+  - windows_mobile = 0
+  - blackberry_mobile = 0
+  - other_mobile = 0
+
+  - sum_w_mobile = 0
+  - sum_h_mobile = 0
+
+  - data.mobile.each_with_index do |mobile, i|
+    - total_mobile += mobile.devices.length
+    - sum_w_mobile += (mobile.device_width * mobile.devices.length)
+    - sum_h_mobile += (mobile.device_height * mobile.devices.length)
+
+    .layer.mobile{:class => "width-#{mobile.device_width} height-#{mobile.device_height} os-#{mobile.contains_os.gsub /,/, ' os-' } dpr-#{mobile.dprs.gsub(/,/, ' dpr-').gsub(/\./, '--') }", :style => "opacity: 0; z-index:#{ data.mobile.length - i };" }
+      .device-information{ :style => "z-index:#{ data.mobile.length + i };" }
+        .device-dimensions
+          .portrait
+            %span.device-width #{mobile.device_width}
+            x
+            %span.device-height #{mobile.device_height}
+          .landscape
+            .portrait
+            %span.device-width #{mobile.device_height}
+            x
+            %span.device-height #{mobile.device_width}
+        .devices
+          - mobile.devices.each do |d|
+            - if d.os.downcase == 'ios'
+              - ios_mobile += 1
+            - elsif d.os.downcase == 'android'
+              - android_mobile += 1
+            - elsif d.os.downcase == 'windows'
+              - windows_mobile += 1
+            - elsif d.os.downcase == 'blackberry'
+              - blackberry_mobile += 1
+            - else
+              - other_mobile += 1
+            .device{:class => "os-#{ d.os.downcase } dpr-#{d.dpr.gsub(/,/, ' dpr-').gsub(/\./, '--') }" }
+              %span.name #{d.name}
+              %span.os (#{d.os})
+
+  - avg_w_mobile = (sum_w_mobile / total_mobile)
+  - avg_h_mobile = (sum_h_mobile / total_mobile)
+
+.content.layers.tablets
+  .no-results
+    .message
+      %p
+        No results
+        %span :(
+      %p Try different filter combinations.
+
+  - total_tablet = 0
+
+  - ios_tablet = 0
+  - android_tablet = 0
+  - windows_tablet = 0
+  - blackberry_tablet = 0
+  - other_tablet = 0
+
+  - sum_w_tablet = 0
+  - sum_h_tablet = 0
+
+  - data.tablet.each_with_index do |tablet, i|
+    - total_tablet += tablet.devices.length
+    - sum_w_tablet += (tablet.device_width * tablet.devices.length)
+    - sum_h_tablet += (tablet.device_height * tablet.devices.length)
+
+    .layer.tablet{:class => "width-#{tablet.device_width} height-#{tablet.device_height} os-#{tablet.contains_os.gsub /,/, ' os-' } dpr-#{tablet.dprs.gsub(/,/, ' dpr-').gsub(/\./, '--') }", :style => "opacity: 0; z-index:#{ data.tablet.length - i };" }
+      .device-information{ :style => "z-index:#{ data.tablet.length - i };" }
+        .device-dimensions
+          .portrait
+            %span.device-width #{tablet.device_width}
+            x
+            %span.device-height #{tablet.device_height}
+          .landscape
+            .portrait
+            %span.device-width #{tablet.device_height}
+            x
+            %span.device-height #{tablet.device_width}
+        .devices
+          - tablet.devices.each do |d|
+            - if d.os.downcase == 'ios'
+              - ios_tablet += 1
+            - elsif d.os.downcase == 'android'
+              - android_tablet += 1
+            - elsif d.os.downcase == 'windows'
+              - windows_tablet += 1
+            - elsif d.os.downcase == 'blackberry'
+              - blackberry_tablet += 1
+            - else
+              - other_tablet += 1
+            .device{:class => "os-#{ d.os.downcase } dpr-#{d.dpr.gsub(/,/, ' dpr-').gsub(/\./, '--') }" }
+              %span.name #{d.name}
+              %span.os (#{d.os})
+
+  - avg_w_tablet = (sum_w_tablet / total_tablet)
+  - avg_h_tablet = (sum_h_tablet / total_tablet)
+
+.content.stats
+  %ul.mobile-stats
+    %li.stat
+      %span.stat-number= total_mobile
+      Mobile devices sampled
+      %span.toggle-sub-list [list toggle]
+      %ul.sub-list
+        - data.mobile.each do |mobile|
+          - mobile.devices.each do |device|
+            %li.list-item= device.name
+    %li.stat
+      %span.stat-number= data.mobile.length
+      Shared device dimensions
+    %li.stat
+      %span.stat-number= avg_w_mobile
+      x
+      %span.stat-number= avg_h_mobile
+      Average mobile device dimensions (px)
+    %li.stat
+      %label Operating Systems:
+      %span.stat-number= ios_mobile
+      iOS,
+      %span.stat-number= android_mobile
+      Android,
+      %span.stat-number= windows_mobile
+      Windows, &amp;
+      %span.stat-number= blackberry_mobile
+      BlackBerry
+
+  %ul.tablet-stats
+    %li.stat
+      %span.stat-number= total_tablet
+      Tablet devices sampled
+      %span.toggle-sub-list [list toggle]
+      %ul.sub-list
+        - data.tablet.each do |tablet|
+          - tablet.devices.each do |device|
+            %li.list-item= device.name
+    %li.stat
+      %span.stat-number= data.tablet.length
+      Shared device dimensions
+    %li.stat
+      %span.stat-number= avg_w_tablet
+      x
+      %span.stat-number= avg_h_tablet
+      Average tablet device dimensions (px)
+    %li.stat
+      %label Operating Systems:
+      %span.stat-number= ios_tablet
+      iOS,
+      %span.stat-number= android_tablet
+      Android,
+      %span.stat-number= windows_tablet
+      Windows, &amp;
+      %span.stat-number= blackberry_tablet
+      BlackBerry
+
+
+.content.calculating-dimensions
+  .equation
+    %span device-width&nbsp;
+    \= ( resolution-width / device-pixel-ratio )
+  .equation
+    %span device-height
+    \= ( resolution-height / device-pixel-ratio )
+
+- content_for :footer do
+  %p
+    Device information mathed and gathered from
+    %a{ :href => "http://screensiz.es/", :target => "_blank"}screen siz.es</a>
+    as of 06/01/2013.
+
+  %p I am a strong fan of design &amp; development by device dimensions, not resolution.
+
+  %p.links
+    %a.git-hub{ :href => "https://github.com/stefhatcher/device-dimensions", :target => "_blank" } github.com/stefhatcher
+    %a.twitters{ :href => "https://twitter.com/stefhatcher", :target => "_blank" } @stefhatcher
+    %a.twitter-share-button{"data-dnt" => "true", "data-via" => "stefhatcher", :href => "https://twitter.com/share"} Tweet
+    :javascript
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+

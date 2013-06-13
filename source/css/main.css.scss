@@ -1,0 +1,477 @@
+@import "compass";
+@import "compass/css3";
+@import "compass/css3/user-interface";
+@import "compass/typography/text/ellipsis";
+
+
+$header-footer-color: #f9f9f9;
+$dat-red: #ee1c25;
+
+$max-height-mobiles: 800;
+$max-height-tablets: 1366;
+
+$widths-mobiles: 266, 320, 360, 382, 400, 480;
+$heights-mobiles: 480, 533, 568, 569, 640, 800;
+
+$widths-tablets: 533, 600, 601, 720, 768, 800;
+$heights-tablets: 800, 853, 962, 1024, 1280, 1366;
+
+$os-slugs: "ios", "android", "windows", "blackberry";
+$dprs: "dpr-1", "dpr-1--33", "dpr-1--5", "dpr-2", "dpr-3";
+
+@mixin svg-inline($name) {
+  background-image: image-url('#{$name}');
+
+  .no-svg & {
+    background-image: inline-image('#{$name}');
+  }
+}
+
+* {
+  @include box-sizing(border-box);
+}
+
+html, body {
+  height: 100%;
+}
+
+a {
+  color: lighten(#666, 20%);
+  text-decoration: none;
+}
+
+body {
+  color: #666;
+  font-family: "Raleway", Helvectica, Arial, Sans-Serif;
+  font-size: 150%;
+  font-weight: 300;
+  line-height: 1.5;
+  width: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -o-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+h1 {
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1em;
+  text-align: center;
+}
+
+#wrapper {
+  height: auto;
+  min-height: 100%;
+}
+
+#mobile-message {
+  background-color: $dat-red;
+  color: #fff;
+  display: none;
+  font-size: 200%;
+
+  .content {
+    margin: 0 auto;
+  }
+}
+
+#header {
+  background-color: $header-footer-color;
+  border-bottom: 1px solid #efefef;
+
+  h1 {
+    margin: 0;
+    padding: 1em 0;
+
+    .author {
+      display: block;
+      font-size: medium;
+    }
+  }
+}
+
+#footer {
+  background-color: $header-footer-color;
+  border-top: 1px solid #efefef;
+  padding: 40px 0;
+  position: relative;
+  clear: both;
+  width: 100%;
+
+  .content {
+    margin: 0 auto;
+  }
+
+  .links a {
+    display: inline-block;
+    margin-right: 1em;
+  }
+
+  .twitter-share-button {
+    float: right;
+    margin: 0;
+  }
+}
+
+.content {
+  margin: 40px auto;
+  padding: 0 20px;
+  position: relative;
+  width: $max-height-tablets + 40px;
+  max-width: 100%;
+  overflow-x: hidden;
+  @include transform(translate3d(0, 0, 0));
+
+  #header & {
+    margin: 0 auto;
+  }
+
+  &.filters {
+    padding-left: 10px;
+  }
+
+  &.layers.mobiles {
+    min-height: $max-height-mobiles + 0px;
+  }
+
+  &.layers.tablets {
+    min-height: $max-height-tablets + 0px;
+  }
+
+  &.layers {
+    overflow-x: scroll;
+  }
+
+  .mobile &.layers.mobiles,
+  .tablet &.layers.tablets {
+    display: block;
+  }
+
+  .mobile &.layers.tablets,
+  .tablet &.layers.mobiles {
+    display: none;
+  }
+}
+
+.layer {
+  background-color: rgba($dat-red, 0.15);
+  display: block;
+  font-size: 0.75em;
+  text-align: center;
+  @include transition(width, height 190ms ease-out);
+  @include transform(translate3d(0, 0, 0));
+  @include user-select(none);
+  -webkit-tap-highlight-color: transparent;
+
+  .hoverable &.hover,
+  .touch.hoverable &.hover {
+    background-color: rgba(#f7941d, 0.75);
+
+    & .device-information {
+      opacity: 1;
+      z-index: 10000;
+    }
+  }
+
+  .hoverable.portrait.stacked-view &:hover,
+  .touch.portrait.stacked-view &.hover {
+    & .device-information {
+      @include transform(translateX(0%));
+    }
+  }
+
+  .hoverable.landscape.stacked-view &:hover,
+  .touch.landscape.stacked-view &.hover {
+    & .device-information {
+      @include transform(translateY(0%));
+    }
+  }
+
+  @each $width in $widths-mobiles {
+    .portrait &.width-#{$width} {
+      margin-left: -#{$width / 2}px;
+      width: #{$width}px;
+    }
+
+    .landscape &.width-#{$width} {
+      height: #{$width}px;
+    }
+  }
+
+  @each $height in $heights-mobiles {
+    .portrait &.height-#{$height} {
+      height: #{$height}px;
+    }
+
+    .landscape &.height-#{$height} {
+      margin-left: -#{$height / 2}px;
+      width: #{$height}px;
+    }
+  }
+
+  @each $width-tablet in $widths-tablets {
+    .portrait &.width-#{$width-tablet} {
+      margin-left: -#{$width-tablet / 2}px;
+      width: #{$width-tablet}px;
+    }
+
+    .landscape &.width-#{$width-tablet} {
+      height: #{$width-tablet}px;
+    }
+  }
+
+  @each $height-tablet in $heights-tablets {
+    .portrait &.height-#{$height-tablet} {
+      height: #{$height-tablet}px;
+    }
+
+    .landscape &.height-#{$height-tablet} {
+      margin-left: -#{$height-tablet / 2}px;
+      width: #{$height-tablet}px;
+    }
+  }
+
+  .stacked-view & {
+    position: absolute;
+    top: 0; left: 50%;
+  }
+
+  .grid-view & {
+    display: inline-block;
+    margin-bottom: 5px;
+    position: relative;
+    vertical-align: top;
+    opacity: 1 !important;
+
+    & .device-information {
+      opacity: 1;
+    }
+  }
+
+  .portrait.grid-view &,
+  .landscape.grid-view & {
+    margin-left: 0;
+  }
+}
+
+.device-information {
+  background-color: #f7941d;
+  color: #fff;
+  opacity: 0;
+  padding: 0 30px;
+  pointer-events: none;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  @include transition(all 190ms ease-out);
+  @include transform(translate3d(0, 0, 0));
+}
+
+.device-dimensions {
+  border-bottom: 1px solid;
+  font-size: 2em;
+  font-weight: 400;
+  margin-bottom: 10px;
+  text-align: left;
+
+  .portrait & .portrait,
+  .landscape & .landscape {
+    display: block;
+  }
+
+  .portrait & .landscape,
+  .landscape & .portrait {
+    display: none;
+  }
+}
+
+.devices {
+  text-align: left;
+
+  .device {
+    width: 100%;
+  }
+
+  .os {
+    opacity: 0.5;
+  }
+}
+
+.stat-number {
+  color: #f43b41;
+  font-size: 1.75em;
+  font-weight: 400;
+}
+
+.equation {
+  font-weight: 400;
+
+  span {
+    color: #f43b41;
+  }
+}
+
+
+// stats
+.stats {
+  .mobile-stats, .tablet-stats {
+    display: none;
+    @include no-bullets;
+    padding: 0;
+
+    .stat {
+      margin: 20px 0;
+    }
+  }
+
+  .mobile & .mobile-stats,
+  .tablet & .tablet-stats {
+    display: block;
+  }
+
+  .mobile & .tablet-stats,
+  .tablet & .mobile-stats {
+    display: none;
+  }
+
+  .toggle-sub-list {
+    @include svg-inline('more.svg');
+    background-position: 50% 69%;
+    background-repeat: no-repeat;
+    @include background-size(80% auto);
+    cursor: pointer;
+    display: inline-block;
+    opacity: 1;
+    width: 40px;
+    @include hide-text;
+  }
+
+  .toggle-sub-list + .sub-list {
+    height: 0;
+  }
+
+  .toggle-sub-list.open {
+    opacity: 0.5;
+  }
+
+  .toggle-sub-list.open + .sub-list {
+    height: auto;
+  }
+
+  .sub-list {
+    @include horizontal-list(0);
+    font-size: smaller;
+
+    .list-item {
+      @include ellipsis;
+      padding: 0 20px 0 0;
+      width: (1 / 3) * 100%;
+    }
+  }
+}
+
+// filters
+.filters {
+  @include user-select(none);
+
+  div {
+    display: inline-block;
+  }
+
+  .filter-group {
+    margin-right: 42px;
+
+    &:last-child {
+      float: right;
+      margin-right: 0;
+    }
+  }
+
+  .filter {
+    background-color: transparent;
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    @include background-size(contain);
+    cursor: pointer;
+    height: 42px;
+    line-height: 42px;
+    width: 42px;
+    opacity: 0.2;
+    padding: 0 5px;
+    text-align: center;
+    @include transition(all 190ms ease-out);
+    @include transform(translate3d(0, 0, 0));
+    @include user-select(none);
+    -webkit-tap-highlight-color: transparent;
+
+    .hoverable &:hover {
+      opacity: 0.5;
+
+      &.active {
+        opacity: 1;
+      }
+    }
+
+    &.active {
+      color: #000;
+      opacity: 1;
+    }
+  }
+}
+
+.mobile-type, .os-type, .view {
+  @include hide-text;
+}
+
+// mobile vs tablet filters
+.mobile-types {
+  .portrait & .active {
+    @include transform(rotate(0deg));
+  }
+
+  .landscape & .active {
+    @include transform(rotate(90deg));
+  }
+}
+
+#mobile {
+  @include svg-inline('mobile.svg');
+}
+
+#tablet {
+  @include svg-inline('tablet.svg');
+}
+
+
+// os filters
+@each $os in $os-slugs {
+  #os-#{$os} {
+    @include svg-inline('#{$os}.svg');
+  }
+}
+
+
+// views
+#stacked-view {
+  @include svg-inline('stacked.svg');
+}
+
+#grid-view {
+  @include svg-inline('grid.svg');
+}
+
+// no results
+.no-results {
+  // display: table;
+  width: 100%;
+  height: 100%;
+
+  .wrapper {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
