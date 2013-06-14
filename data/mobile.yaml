@@ -4,8 +4,6 @@
 -
   device_width: 266
   device_height: 533
-  res_width: 400
-  res_height: 800
   dprs: "1.5"
   contains_os: "android"
   devices:
@@ -17,8 +15,6 @@
 -
   device_width: 320
   device_height: 480
-  res_width: 640
-  res_height: 960
   dprs: "1,2"
   contains_os: "ios"
   devices:
@@ -38,8 +34,6 @@
 -
   device_width: 320
   device_height: 533
-  res_width: 480
-  res_height: 800
   dprs: "1.5"
   contains_os: "android,windows"
   devices:
@@ -79,8 +73,6 @@
 -
   device_width: 320
   device_height: 568
-  res_width: 640
-  res_height: 1136
   dprs: "2"
   contains_os: "ios"
   devices:
@@ -92,8 +84,6 @@
 -
   device_width: 320
   device_height: 569
-  res_width: 480
-  res_height: 854
   dprs: "1.5"
   contains_os: "android"
   devices:
@@ -105,9 +95,7 @@
 -
   device_width: 360
   device_height: 640
-  res_width: 540
-  res_height: 960
-  dprs: "1.5"
+  dprs: "1.5,2,3"
   contains_os: "android"
   devices:
     -
@@ -126,15 +114,6 @@
       name: Droid Razr Maxx
       os: Android
       dpr: "1.5"
-
--
-  device_width: 360
-  device_height: 640
-  res_width: 720
-  res_height: 1280
-  dprs: "2"
-  contains_os: "android"
-  devices:
     -
       name: Galaxy Nexus
       os: Android
@@ -147,15 +126,6 @@
       name: Galaxy SIII
       os: Android
       dpr: "2"
-
--
-  device_width: 360
-  device_height: 640
-  res_width: 1080
-  res_height: 1920
-  dprs: "3"
-  contains_os: "android"
-  devices:
     -
       name: Galaxy SIV
       os: Android
@@ -168,8 +138,6 @@
 -
   device_width: 382
   device_height: 640
-  res_width: 768
-  res_height: 1280
   dprs: "2"
   contains_os: "android,blackberry,windows"
   devices:
@@ -189,8 +157,6 @@
 -
   device_width: 400
   device_height: 640
-  res_width: 800
-  res_height: 1280
   dprs: "2"
   contains_os: "android"
   devices:
@@ -202,8 +168,6 @@
 -
   device_width: 480
   device_height: 800
-  res_width: 480
-  res_height: 800
   dprs: "1"
   contains_os: "android"
   devices:

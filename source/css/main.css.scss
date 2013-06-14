@@ -10,6 +10,9 @@ $dat-red: #ee1c25;
 $max-height-mobiles: 800;
 $max-height-tablets: 1366;
 
+$max-width-mobiles: 480;
+$max-width-tablets: 800;
+
 $widths-mobiles: 266, 320, 360, 382, 400, 480;
 $heights-mobiles: 480, 533, 568, 569, 640, 800;
 
@@ -124,7 +127,7 @@ h2 {
   position: relative;
   width: $max-height-tablets + 40px;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow: visible;
   @include transform(translate3d(0, 0, 0));
 
   #header & {
@@ -135,16 +138,33 @@ h2 {
     padding-left: 10px;
   }
 
-  &.layers.mobiles {
-    min-height: $max-height-mobiles + 0px;
-  }
-
-  &.layers.tablets {
-    min-height: $max-height-tablets + 0px;
-  }
-
   &.layers {
-    overflow-x: scroll;
+    margin: 0 auto;
+  }
+
+  .portrait &.layers.mobiles {
+    min-height: $max-height-mobiles + 1px;
+    width: $max-width-mobiles + 1px;
+  }
+
+  .landscape &.layers.mobiles {
+    min-height: $max-width-mobiles + 1px;
+    width: $max-height-mobiles + 1px;
+  }
+
+  .portrait &.layers.tablets {
+    min-height: $max-height-tablets + 1px;
+    width: $max-width-tablets + 1px;
+  }
+
+  .landscape &.layers.tablets {
+    min-height: $max-width-tablets + 1px;
+    width: $max-height-tablets + 1px;
+  }
+
+  .grid-view &.layers.mobiles,
+  .grid-view &.layers.tablets {
+    width: 100%;
   }
 
   .mobile &.layers.mobiles,
@@ -164,12 +184,10 @@ h2 {
   font-size: 0.75em;
   text-align: center;
   @include transition(width, height 190ms ease-out);
-  @include transform(translate3d(0, 0, 0));
   @include user-select(none);
   -webkit-tap-highlight-color: transparent;
 
-  .hoverable &.hover,
-  .touch.hoverable &.hover {
+  .hoverable &.hover {
     background-color: rgba(#f7941d, 0.75);
 
     & .device-information {
@@ -178,23 +196,8 @@ h2 {
     }
   }
 
-  .hoverable.portrait.stacked-view &:hover,
-  .touch.portrait.stacked-view &.hover {
-    & .device-information {
-      @include transform(translateX(0%));
-    }
-  }
-
-  .hoverable.landscape.stacked-view &:hover,
-  .touch.landscape.stacked-view &.hover {
-    & .device-information {
-      @include transform(translateY(0%));
-    }
-  }
-
   @each $width in $widths-mobiles {
     .portrait &.width-#{$width} {
-      margin-left: -#{$width / 2}px;
       width: #{$width}px;
     }
 
@@ -209,14 +212,12 @@ h2 {
     }
 
     .landscape &.height-#{$height} {
-      margin-left: -#{$height / 2}px;
       width: #{$height}px;
     }
   }
 
   @each $width-tablet in $widths-tablets {
     .portrait &.width-#{$width-tablet} {
-      margin-left: -#{$width-tablet / 2}px;
       width: #{$width-tablet}px;
     }
 
@@ -231,14 +232,13 @@ h2 {
     }
 
     .landscape &.height-#{$height-tablet} {
-      margin-left: -#{$height-tablet / 2}px;
       width: #{$height-tablet}px;
     }
   }
 
   .stacked-view & {
     position: absolute;
-    top: 0; left: 50%;
+    top: 0%; left: 0%;
   }
 
   .grid-view & {
