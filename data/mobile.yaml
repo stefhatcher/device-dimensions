@@ -80,6 +80,14 @@
       name: iPhone 5
       os: iOS
       dpr: "2"
+    -
+      name: iPhone 5c
+      os: iOS
+      dpr: "2"
+    -
+      name: iPhone 5s
+      os: iOS
+      dpr: "2"
 
 -
   device_width: 320
@@ -91,6 +99,17 @@
       name: Droid
       os: Android
       dpr: "1.5"
+
+-
+  device_width: 360
+  device_height: 360
+  dprs: "2"
+  contains_os: "blackberry"
+  devices:
+    -
+      name: BlackBerry Q10
+      os: BlackBerry
+      dpr: "2"
 
 -
   device_width: 360
@@ -115,6 +134,10 @@
       os: Android
       dpr: "1.5"
     -
+      name: Alcatel One Touch Idol Ultra
+      os: Android
+      dpr: "2"
+    -
       name: Galaxy Nexus
       os: Android
       dpr: "2"
@@ -134,9 +157,24 @@
       name: HTC One
       os: Android
       dpr: "3"
+    -
+      name: Song Xperia Z
+      os: Android
+      dpr: "3"
 
 -
-  device_width: 382
+  device_width: 375
+  device_height: 667
+  dprs: "2"
+  contains_os: "ios"
+  devices:
+    -
+      name: iPhone 6
+      os: iOS
+      dpr: "2"
+
+-
+  device_width: 384
   device_height: 640
   dprs: "2"
   contains_os: "android,blackberry,windows"
@@ -148,6 +186,14 @@
     -
       name: Google Nexus 4 (LG)
       os: Android
+      dpr: "2"
+    -
+      name: Nokia Lumia 1020
+      os: Windows
+      dpr: "2"
+    -
+      name: Nokia Lumia 925
+      os: Windows
       dpr: "2"
     -
       name: Nokia Lumia 920
@@ -164,6 +210,17 @@
       name: Galaxy Note
       os: Android
       dpr: "2"
+
+-
+  device_width: 414
+  device_height: 736
+  dprs: "3"
+  contains_os: "ios"
+  devices:
+    -
+      name: iPhone 6 Plus
+      os: iOS
+      dpr: "3"
 
 -
   device_width: 480
