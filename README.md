@@ -1,4 +1,4 @@
-device-dimensions
+[device-dimensions](http://stefhatcher.com/projects/device-dimensions/)
 =================
 
 Heat map and grid views of common device dimensions, not resolutions. Mobile and tablet.
